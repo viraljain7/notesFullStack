@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv'
-
+import cors from 'cors'
 dotenv.config()
 
 import notesRoutes from './routes/notesRoutes.js';
@@ -8,7 +8,7 @@ import {connectDB} from './config/db.js';
 import { rateLimiter } from './middleware/Ratelimiter.js';
 
 
-const port=process.env.PORT||3000;
+const port=process.env.PORT||5000;
 
 
 const app=express()
@@ -22,6 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 // custom middleware
 
 app.use(rateLimiter)
+
+app.use(cors());
 // app.use((req,res,next)=>{
 // console.log("req method is ",req.method," and url is ",req.url)
 // next()

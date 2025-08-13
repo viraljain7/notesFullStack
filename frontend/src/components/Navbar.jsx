@@ -3,7 +3,7 @@ import { Plus } from "lucide-react";
 
 const Navbar = ({ onOpenAddModal }) => {
   return (
-    <header className="bg-base-100 shadow-sm sticky top-0 z-50" data-theme="abyss">
+    <header className="bg-black-100/30 backdrop-blur-md shadow-md sticky top-0 z-50 " data-theme="abyss">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-primary">📝 Notes Manager</h1>
         <button

@@ -16,8 +16,10 @@ const AddNotes = ({ onAdd, show, onClose }) => {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div
+    <div
+     className="fixed inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm z-50">
+  
+    <div
         className="bg-base-300 p-6 rounded-xl shadow-lg w-full max-w-md"
         data-theme="abyss"
       >

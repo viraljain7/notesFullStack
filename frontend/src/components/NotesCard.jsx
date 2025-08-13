@@ -1,7 +1,8 @@
 import React from "react";
 import { Edit, Trash2 } from "lucide-react";
-
-const NotesCard = ({ title, content, date, time, onEdit, onDelete }) => {
+import { formatUTCToLocal } from "../utils/DateFormater";
+// import { formatUTCToLocal } from "./utils/dateFormatter";
+const NotesCard = ({ title, content, createdAt, onEdit, onDelete }) => {
   return (
     <div
       className="bg-base-300 rounded-xl shadow-lg hover:shadow-xl p-5 transition-all duration-300"
@@ -11,11 +12,11 @@ const NotesCard = ({ title, content, date, time, onEdit, onDelete }) => {
       <h2 className="text-lg font-semibold text-gray-100 mb-2">{title}</h2>
 
       {/* Content */}
-      <p className="text-gray-300 text-sm mb-4">{content}</p>
+      <p className="text-gray-300 text-sm mb-4">{content.slice(0,150)}{content.length > 150 ? '...' : ''}</p>
 
       {/* Footer */}
       <div className="flex items-center justify-between text-xs text-gray-400">
-        <span>{date} • {time}</span>
+        <span>{formatUTCToLocal(createdAt)}</span>
         <div className="flex gap-2">
           <button
             onClick={onEdit}

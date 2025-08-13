@@ -7,14 +7,14 @@ const NotesCardContainer = ({ notes, onEdit, onDelete }) => {
       {notes.length > 0 ? (
         notes.map((note) => (
           <NotesCard
-            key={note.id}
-            title={note.title}
-            content={note.content}
-            date={note.date}
-            time={note.time}
-            onEdit={() => onEdit(note.id)}
-            onDelete={() => onDelete(note.id)}
-          />
+  key={note._id}
+  title={note.title}
+  content={note.content}
+  createdAt={note.createdAt}
+  onEdit={() => onEdit(note)}
+  onDelete={() => onDelete(note._id)}
+/>
+
         ))
       ) : (
         <p className="text-gray-400 col-span-full text-center">
