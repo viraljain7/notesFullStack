@@ -64,11 +64,10 @@ const HomePage = () => {
 
   return (
     <div
-      data-theme="abyss"
-      className="absolute top-0 -z-10 h-full w-full mx-auto p-6 bg-base-100 min-h-screen"
-    >
-      <div className="absolute w-full bottom-auto left-auto right-0 top-0 h-[455px] -translate-x-[80%] translate-y-[80%] rounded-full bg-[rgba(143,233,135,0.5)] opacity-50 blur-[80px]" />
-
+    data-theme="abyss"
+    className="absolute top-0 -z-10 w-full mx-auto p-6 bg-base-100"
+  >
+    <div className="absolute w-full bottom-auto left-auto right-0 top-0 h-fit -translate-x-[80%] translate-y-[80%] rounded-full bg-[rgba(143,233,135,0.5)] opacity-50 blur-[80px]" />
       <Navbar onOpenAddModal={() => setIsAddModalOpen(true)} />
 
       <div className="mt-10">

@@ -17,7 +17,7 @@ const NotesCardContainer = ({ notes, onEdit, onDelete }) => {
 
         ))
       ) : (
-        <p className="text-gray-400 col-span-full text-center">
+        <p className="text-gray-400 col-span-full text-center h-[82vh]">
           No notes yet. Add one to get started!
         </p>
       )}

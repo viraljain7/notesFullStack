@@ -5,7 +5,7 @@ import { formatUTCToLocal } from "../utils/DateFormater";
 const NotesCard = ({ title, content, createdAt, onEdit, onDelete }) => {
   return (
     <div
-      className="bg-base-300 rounded-xl shadow-lg hover:shadow-xl p-5 transition-all duration-300"
+      className="bg-base-300 rounded-xl shadow-lg hover:shadow-xl p-5 transition-all duration-300 flex flex-col justify-between h-full"
       data-theme="abyss"
     >
       {/* Title */}
@@ -16,7 +16,7 @@ const NotesCard = ({ title, content, createdAt, onEdit, onDelete }) => {
 
       {/* Footer */}
       <div className="flex items-center justify-between text-xs text-gray-400">
-        <span>{formatUTCToLocal(createdAt)}</span>
+        <span className="font-bold ">{formatUTCToLocal(createdAt)}</span>
         <div className="flex gap-2">
           <button
             onClick={onEdit}
