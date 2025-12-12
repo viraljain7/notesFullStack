@@ -31,7 +31,6 @@ export const addNotes = async (req, res) => {
 
     const newNote = await Note.create({ title, content });
 
-    console.log("✅ New note saved:", newNote);
 
     return res.status(201).json({
       message: "Note created successfully",

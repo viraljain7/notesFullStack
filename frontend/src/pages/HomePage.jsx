@@ -14,7 +14,7 @@ const HomePage = () => {
 
   const fetchNotes = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/notes");
+      const res = await fetch("/api/notes");
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
       setNotes(await res.json());
     } catch (error) {
@@ -25,7 +25,7 @@ const HomePage = () => {
 
   const handleAddNote = async (note) => {
     try {
-      const res = await fetch("http://localhost:5000/api/notes", {
+      const res = await fetch("/api/notes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(note),
@@ -42,7 +42,7 @@ const HomePage = () => {
 
   const confirmDelete = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/notes/${deleteId}`, {
+      const res = await fetch(`/api/notes/${deleteId}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
@@ -57,17 +57,17 @@ const HomePage = () => {
   const handleEditNote = (note) => {
     setEditNote(note);
   };
-  
+
   useEffect(() => {
     fetchNotes();
   }, []);
 
   return (
     <div
-    data-theme="abyss"
-    className="absolute top-0 -z-10 w-full mx-auto p-6 bg-base-100"
-  >
-    <div className="absolute w-full bottom-auto left-auto right-0 top-0 h-fit -translate-x-[80%] translate-y-[80%] rounded-full bg-[rgba(143,233,135,0.5)] opacity-50 blur-[80px]" />
+      data-theme="abyss"
+      className="absolute top-0 -z-10 w-full mx-auto p-6 bg-base-100"
+    >
+      <div className="absolute w-full bottom-auto left-auto right-0 top-0 h-fit -translate-x-[80%] translate-y-[80%] rounded-full bg-[rgba(143,233,135,0.5)] opacity-50 blur-[80px]" />
       <Navbar onOpenAddModal={() => setIsAddModalOpen(true)} />
 
       <div className="mt-10">
@@ -77,13 +77,12 @@ const HomePage = () => {
           onClose={() => setIsAddModalOpen(false)}
         />
 
-<EditNotes
-  note={editNote}
-  show={!!editNote}
-  onClose={() => setEditNote(null)}
-  onUpdated={fetchNotes}
-/>
-
+        <EditNotes
+          note={editNote}
+          show={!!editNote}
+          onClose={() => setEditNote(null)}
+          onUpdated={fetchNotes}
+        />
 
         <NotesCardContainer
           notes={notes}

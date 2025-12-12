@@ -18,7 +18,7 @@ const EditNotes = ({ note, show, onClose, onUpdated }) => {
     if (!title.trim() || !content.trim()) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/notes/${note._id}`, {
+      const res = await fetch(`/api/notes/${note._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title, content }),
@@ -38,10 +38,18 @@ const EditNotes = ({ note, show, onClose, onUpdated }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-50">
-      <div className="bg-base-300 p-6 rounded-xl shadow-lg w-full max-w-md" data-theme="abyss">
+      <div
+        className="bg-base-300 p-6 rounded-xl shadow-lg w-full max-w-md"
+        data-theme="abyss"
+      >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold text-gray-100">Edit Note</h2>
-          <button onClick={onClose} className="btn btn-sm btn-circle btn-ghost text-white">✕</button>
+          <button
+            onClick={onClose}
+            className="btn btn-sm btn-circle btn-ghost text-white"
+          >
+            ✕
+          </button>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -59,7 +67,9 @@ const EditNotes = ({ note, show, onClose, onUpdated }) => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
-          <button type="submit" className="btn btn-primary w-full">Save Changes</button>
+          <button type="submit" className="btn btn-primary w-full">
+            Save Changes
+          </button>
         </form>
       </div>
     </div>
